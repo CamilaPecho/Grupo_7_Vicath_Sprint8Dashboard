@@ -4,9 +4,10 @@ import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
 import ContentRowMovies from './ContentRowMovies';
-import SearchMovies from './SearchMovies';
+import SearchMovies from './SearchMovies'
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
+import Chart from './Chart';
 
 function SideBar(){
     return(
@@ -39,33 +40,34 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                <Link className="nav-link" to="/GenresInDb">
+                <Link className="nav-link" to="/totales">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
+                        <span>Totales</span>
                     </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                    <Link className="nav-link" to="/ultimoproducto">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Último producto</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowMovies">
+                <Link className="nav-link" to="/tables">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Tablas</span></Link>
                 </li>
-                
+
                 {/*<!-- Buscador -->*/}
                 <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/SearchMovies">
+                    <Link className="nav-link" to="/searchProduct">
                         <i className="fas fa-search"></i>
-                        <span>Search a movie</span>
+                        <span>Buscar un producto</span>
                     </Link>
                 </li>
+
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
@@ -92,16 +94,16 @@ function SideBar(){
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/GenresInDb">
+                <Route path="/totales">
                     <GenresInDb />
                 </Route>
-                <Route path="/LastMovieInDb">
+                <Route path="/ultimoproducto">
                     <LastMovieInDb />
                 </Route>
-                <Route path="/ContentRowMovies">
-                    <ContentRowMovies />
+                <Route path="/tables">
+                    <Chart />
                 </Route>
-                <Route path="/SearchMovies">
+                <Route path="/searchProduct">
                     <SearchMovies />
                 </Route>
                 <Route component={NotFound} />

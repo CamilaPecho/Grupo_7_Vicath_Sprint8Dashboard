@@ -1,63 +1,73 @@
+//import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import SmallCard from './SmallCard';
-import React, { useState, useEffect, useRef } from 'react';
 
 /*  Cada set de datos es un objeto literal */
 
+
 /* <!-- Movies in DB --> */
 
-let moviesInDB = {
-    title: 'Movies in Data Base',
-    color: 'primary', 
-    cuantity: 21,
-    icon: 'fa-clipboard-list'
-}
 
-/* <!-- Total awards --> */
-
-let totalAwards = {
-    title:' Total awards', 
-    color:'success', 
-    cuantity: '79',
-    icon:'fa-award'
-}
-
-/* <!-- Actors quantity --> */
-
-let actorsQuantity = {
-    title:'Actors quantity' ,
-    color:'warning',
-    cuantity:'49',
-    icon:'fa-user-check'
-}
-
-let cartProps = [moviesInDB, totalAwards, actorsQuantity];
 
 function ContentRowMovies(){
-    const [users, setUsers] = useState([]);
-    const [countUsers, setCountUsers] = useState(0);
+    let [countUsers, setCountUsers] = useState(0)
+    let [countProducts, setCountProducts] = useState(0)
+    let [countCategories, setCountCategories] = useState(0)
 
-    useEffect(() => {
-		// Petición Asincrónica al montarse el componente
-		const endpoint = 'http://localhost:3001/api/users';
+    useEffect(()=>{
+		fetch(`/api/users`)
+		.then(response => {
+			return response.json()
+		})
+		.then(data => {
+			setCountUsers(data.count)
 
-			fetch(endpoint)
-				.then(response => response.json())
-				.then(data => {
-					
-					//setUsers(data.Search);
-                    console.log(data.dataValues)
-				})
-				.catch(error => console.log(error))
-		
-	}, [countUsers])
+            //
+                fetch(`/api/products`)
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    setCountProducts(data.count)
+                    setCountCategories(data.countTotalCategories)
+                })
+		})
+	}, [])
+
+    let moviesInDB = {
+        title: 'Total de usuarios',
+        color: 'primary', 
+        cuantity: countUsers,
+        icon: 'fa-clipboard-list'
+    }
+    
+    /* <!-- Total awards --> */
+    
+    let totalAwards = {
+        title:'Total de productos', 
+        color:'success', 
+        cuantity: countProducts,
+        icon:'fa-award'
+    }
+    
+    /* <!-- Actors quantity --> */
+    
+    let actorsQuantity = {
+        title:'Total de categorias' ,
+        color:'warning',
+        cuantity: countCategories,
+        icon:'fa-user-check'
+    }
+    
+    let cartProps = [moviesInDB, totalAwards, actorsQuantity];
 
     return (
     
         <div className="row">
             
-            {cartProps.map( (movie, i) => {
+            {cartProps.map( (data, i) => {
 
-                return <SmallCard {...movie} key={i}/>
+                return <SmallCard {...data} key={i}/>
             
             })}
 

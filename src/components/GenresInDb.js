@@ -1,71 +1,51 @@
-import React from "react";
+import React, {useState, useEffect, useRef} from 'react';
+import Genre  from './Genre';
 
-function GenresInDb() {
-  return (
-    <div className="col-lg-6 mb-4">
-      <div className="card shadow mb-4">
-        <div className="card-header py-3">
-          <h5 className="m-0 font-weight-bold text-gray-800">
-            Genres in Data Base
-          </h5>
-        </div>
-        <div className="card-body">
-          <div className="row">
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Acción</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Animación</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Aventura</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Ciencia Ficción</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Comedia</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Documental</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Drama</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Fantasia</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Infantiles</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Musical</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+
+function GenresInDb(){
+    let [categoryList, setCategoryList] = useState([])
+
+    useEffect(()=>{
+     console.log("Estoy en el hook -inicio-")
+        fetch('api/products')
+        .then(respuesta => {
+            return respuesta.json()
+        })
+        .then(data => {
+          setCategoryList(data.countByCategory)
+          
+          
+          //setarrayCategoryConverted(arrayCategory)
+        })
+        .catch(error => console.log(error))
+    }, [])
+
+    console.log("Esto se ejecuta primero")
+        return (
+            <React.Fragment>
+                    {/*<!-- Categories in DB -->*/}
+                    <div className="col-lg-6 mb-4">						
+                        <div className="card shadow mb-4">
+                            <div className="card-header py-3">
+                                <h6 className="m-0 font-weight-bold text-gray-800">Categorias - Vicath</h6>
+                            </div>
+                            <div className="card-body fondoCaja">
+                                <div className="row">
+                                    {
+                                      categoryList.length > 0 &&
+                                      categoryList.map((categoria,index)=>{
+                                            return  <Genre  {...categoria}  key={index} />
+                                        })
+                                    }
+                                    { categoryList.length === 0 && <p>No se encontró nada</p>}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
+            </React.Fragment>
+        )
+    
+
 }
-
 export default GenresInDb;
