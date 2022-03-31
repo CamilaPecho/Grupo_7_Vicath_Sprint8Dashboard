@@ -2,13 +2,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import SmallCard from './SmallCard';
 
-/*  Cada set de datos es un objeto literal */
-
-
-/* <!-- Movies in DB --> */
-
-
-
 function ContentRowMovies(){
     let [countUsers, setCountUsers] = useState(0)
     let [countProducts, setCountProducts] = useState(0)
@@ -22,7 +15,6 @@ function ContentRowMovies(){
 		.then(data => {
 			setCountUsers(data.count)
 
-            //
                 fetch(`/api/products`)
                 .then(response => {
                     return response.json()
@@ -34,35 +26,30 @@ function ContentRowMovies(){
 		})
 	}, [])
 
-    let moviesInDB = {
+    let usersInDB = {
         title: 'Total de usuarios',
         color: 'primary', 
         cuantity: countUsers,
-        icon: 'fa-clipboard-list'
+        icon: 'fa-user-check'
     }
-    
-    /* <!-- Total awards --> */
-    
-    let totalAwards = {
+     
+    let totalProducts = {
         title:'Total de productos', 
         color:'success', 
         cuantity: countProducts,
         icon:'fa-award'
     }
-    
-    /* <!-- Actors quantity --> */
-    
-    let actorsQuantity = {
+
+    let categoriesInDB = {
         title:'Total de categorias' ,
         color:'warning',
         cuantity: countCategories,
-        icon:'fa-user-check'
+        icon:'fa-clipboard-list'
     }
     
-    let cartProps = [moviesInDB, totalAwards, actorsQuantity];
+    let cartProps = [usersInDB, totalProducts, categoriesInDB];
 
     return (
-    
         <div className="row">
             
             {cartProps.map( (data, i) => {
