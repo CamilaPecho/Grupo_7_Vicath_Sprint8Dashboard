@@ -1,26 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import ChartRow from './ChartRow';
 
-let tableRowsData = [
-    {
-        Title: 'Billy Elliot ',
-        Length: '123',
-        Rating: '5',
-        Categories: ['Drama','Comedia'],
-        Awards: 2
-    },
-    {
-        Title: 'Alicia en el país de las maravillas',
-        Length: '142',
-        Rating: '4.8',
-        Categories: ['Drama','Acción','Comedia'],
-        Awards: 3
-    },
-    
-]
-
-
-
 function Chart (){
     let [productsList, setProductsList] = useState([])
     let [usersList, setUsersList] = useState([])
@@ -57,8 +37,9 @@ function Chart (){
 
     return (
         <React.Fragment>
-        {/* <!-- DataTales PRODUCTS Example --> */}
-        <div className="card shadow mb-4">
+        {/* <!-- DataTales PRODUCTS --> */}
+        <div>
+        <div className="card shadow">
             <div className="card-body">
                 <div className="table-responsive">
                     <p>Tabla de productos</p>
@@ -81,7 +62,6 @@ function Chart (){
                         </tbody>
                     </table>
 
-                    {/*no es mio lo de abajo*/}
                     <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
                         {
@@ -111,8 +91,8 @@ function Chart (){
             </div>
         </div>
 
-        {/* <!-- DataTales PRODUCTS Example --> */}
-        <div className="card shadow mb-4">
+        {/* <!-- DataTales USER --> */}
+        <div className="card shadow">
             <div className="card-body">
                 <div className="table-responsive">
                     <p>Tabla de usuarios</p>
@@ -120,8 +100,8 @@ function Chart (){
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Título</th>
-                                <th>Descripción</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
                                 <th>Detalle</th>
                             </tr>
                         </thead>
@@ -135,7 +115,6 @@ function Chart (){
                         </tbody>
                     </table>
 
-                    {/*no es mio lo de abajo*/}
                     <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
                         {
@@ -164,6 +143,8 @@ function Chart (){
                 </div>
             </div>
         </div>
+        </div>
+
         </React.Fragment>
     )
 }

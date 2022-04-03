@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function ChartRow(props){
     return (
                 <tr>
@@ -11,7 +10,5 @@ function ChartRow(props){
                 </tr>
             )
     }
-    
-        
 
 export default ChartRow;
