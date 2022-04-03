@@ -39,7 +39,7 @@ function LastMovieInDb(){
                 </div>}
                 {verDetalleState===true && <div className="card-body">
                     <div className="text-center">
-                        { Object.keys(ultimoProducto).length > 0 && <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={'http://localhost:3001/images/'+ultimoProducto.images[0].name} alt=" Star Wars - Mandalorian "/>}
+                        { Object.keys(ultimoProducto).length > 0 && <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={'https://vicath-libreria.herokuapp.com/images/'+ultimoProducto.images[0].name} alt=" Star Wars - Mandalorian "/>}
                     </div>
                     <p>Titulo: {ultimoProducto.name}</p>
                     <p>Descripción: {ultimoProducto.description}</p>
