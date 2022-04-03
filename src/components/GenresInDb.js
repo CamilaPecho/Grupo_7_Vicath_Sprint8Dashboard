@@ -7,7 +7,7 @@ function GenresInDb(){
 
     useEffect(()=>{
      console.log("Estoy en el hook -inicio-")
-        fetch('api/products')
+        fetch('https://vicath-libreria.herokuapp.com/api/products')
         .then(respuesta => {
             return respuesta.json()
         })

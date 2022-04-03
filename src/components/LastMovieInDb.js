@@ -6,7 +6,7 @@ function LastMovieInDb(){
     let [verDetalleState, setVerDetalle] = useState(false)
 
     useEffect(()=>{
-		fetch(`/api/lastproduct`)
+		fetch(`https://vicath-libreria.herokuapp.com/api/lastproduct`)
 		.then(response => {
 			return response.json()
 		})

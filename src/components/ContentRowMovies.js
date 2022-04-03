@@ -15,7 +15,7 @@ function ContentRowMovies(){
     let [countCategories, setCountCategories] = useState(0)
 
     useEffect(()=>{
-		fetch(`/api/users`)
+		fetch(`https://vicath-libreria.herokuapp.com/api/users`)
 		.then(response => {
 			return response.json()
 		})
@@ -23,7 +23,7 @@ function ContentRowMovies(){
 			setCountUsers(data.count)
 
             //
-                fetch(`/api/products`)
+                fetch(`https://vicath-libreria.herokuapp.com/api/products`)
                 .then(response => {
                     return response.json()
                 })

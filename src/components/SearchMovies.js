@@ -17,7 +17,7 @@ function SearchMovies(){
 	useEffect(() => {
 		// Petición Asincrónica al montarse el componente
 		//const endpoint = `https://www.omdbapi.com/?s=${keyword}&apikey=${apiKey}`;
-		const endpoint = `/api/searchproducts?word=${wordSearch}`;
+		const endpoint = `https://vicath-libreria.herokuapp.com/api/searchproducts?word=${wordSearch}`;
 		
 			fetch(endpoint)
 				.then(response => response.json())

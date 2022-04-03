@@ -33,7 +33,7 @@ function Chart (){
     let [pageNextUser, setPageNextUser] = useState(null)
 
     useEffect(()=>{
-		fetch(`/api/products?page=${pageCurrentProduct}`)
+		fetch(`https://vicath-libreria.herokuapp.com/api/products?page=${pageCurrentProduct}`)
 		.then(response => {
 			return response.json()
 		})
@@ -42,7 +42,7 @@ function Chart (){
             setPagePrevProduct(data.previous)
             setPageNextProduct(data.next)
 
-            fetch(`/api/users?page=${pageCurrentUser}`)
+            fetch(`https://vicath-libreria.herokuapp.com/api/users?page=${pageCurrentUser}`)
             .then(response => {
                 return response.json()
             })
