@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 
+
 function LastMovieInDb(){
     let [ultimoProducto, setUltimoProducto] = useState({})
     let [verDetalleState, setVerDetalle] = useState(false)
@@ -34,7 +35,7 @@ function LastMovieInDb(){
                     <p>Titulo: {ultimoProducto.name}</p>
                     <p>Descripción: {ultimoProducto.description}</p>
                     <p>Precio: {ultimoProducto.price}</p>
-                    <a className="btn btn-danger" target="_blank" onClick={verDetalle} rel="nofollow" href="/">Ver detalle completo</a>
+                    <a className="btn btn-danger" target="_blank" onClick={verDetalle} rel="nofollow" href="/">View movie detail</a>
                 </div>}
                 {verDetalleState===true && <div className="card-body">
                     <div className="text-center">
@@ -45,8 +46,8 @@ function LastMovieInDb(){
                     <p>Precio: {ultimoProducto.price}</p>
                     <p>Descuento: {ultimoProducto.discount}</p>
                     <p>Stock: {ultimoProducto.stock}</p>
-                    <p>Stock Mínimo: {ultimoProducto.stock_min}</p>
-                    <p>Stock Máximo: {ultimoProducto.stock_max}</p>
+                    <p>Stock Máximo: {ultimoProducto.stock_min}</p>
+                    <p>Stock Mínimo: {ultimoProducto.stock_max}</p>
                     <p>Descripción detallada: {ultimoProducto.extended_description}</p>
                     <a className="btn btn-danger" target="_blank" onClick={verDetalle} rel="nofollow" href="/">Ver menos</a>
                 </div>

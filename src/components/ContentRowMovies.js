@@ -15,12 +15,8 @@ function ContentRowMovies(){
 		.then(data => {
 			setCountUsers(data.count)
 
-<<<<<<< HEAD
             //
                 fetch(`https://vicath-libreria.herokuapp.com/api/products`)
-=======
-                fetch(`/api/products`)
->>>>>>> da3751c3bde5c8fbdf2fcf691a335251f27f443c
                 .then(response => {
                     return response.json()
                 })
