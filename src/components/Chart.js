@@ -39,7 +39,7 @@ function Chart (){
         <React.Fragment>
         {/* <!-- DataTales PRODUCTS --> */}
         <div>
-        <div className="card shadow">
+        <div className="card shadow tabla">
             <div className="card-body">
                 <div className="table-responsive">
                     <p>Tabla de productos</p>
@@ -92,7 +92,7 @@ function Chart (){
         </div>
 
         {/* <!-- DataTales USER --> */}
-        <div className="card shadow">
+        <div className="card shadow tabla">
             <div className="card-body">
                 <div className="table-responsive">
                     <p>Tabla de usuarios</p>

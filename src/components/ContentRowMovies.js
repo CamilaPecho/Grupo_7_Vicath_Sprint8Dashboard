@@ -29,7 +29,7 @@ function ContentRowMovies(){
 
     let usersInDB = {
         title: 'Total de usuarios',
-        color: 'primary', 
+        color: 'success', 
         cuantity: countUsers,
         icon: 'fa-user-check'
     }
@@ -43,7 +43,7 @@ function ContentRowMovies(){
 
     let categoriesInDB = {
         title:'Total de categorias' ,
-        color:'warning',
+        color:'success',
         cuantity: countCategories,
         icon:'fa-clipboard-list'
     }
