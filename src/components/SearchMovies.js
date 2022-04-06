@@ -55,7 +55,7 @@ function SearchMovies(){
 					</div>
 					<div className="row">
 						<div className="col-12">
-							<h2>Películas para la palabra: {wordSearch}</h2>
+							<h2>Productos para la palabra: {wordSearch}</h2>
 						</div>
 						{/* Listado de películas */}
 						{

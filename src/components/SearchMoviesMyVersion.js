@@ -59,7 +59,7 @@ function SearchMoviesMyVersion(){
 					</div>
 					<div className="row">
 						<div className="col-12">
-							<h2>Películas para la palabra: {keyword}</h2>
+							<h2>Productos para la palabra: {keyword}</h2>
 						</div>
 						{/* Listado de películas */}
 						{
